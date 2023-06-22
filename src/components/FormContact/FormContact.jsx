@@ -12,7 +12,7 @@ import {
 import { FcPlus } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "../../redux/selectors";
-import { addContacts } from "../../redux/contactsSlice";
+import { addContacts } from "../../redux/operations";
 
 const phoneValidation =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
