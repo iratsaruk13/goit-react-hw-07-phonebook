@@ -55,7 +55,7 @@ export const Contacts = () => {
           return (
             <ContactsItem key={id}>
               <ContactsName>
-                {name}: {formattedNumber}
+                {name}: {formattedNumber(number)}
               </ContactsName>
               <ContactsButton type="button" onClick={() => deleteContact(id)}>
                 <BsTrash3 />
