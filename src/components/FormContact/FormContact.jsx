@@ -44,19 +44,8 @@ export const FormContact = () => {
     reset();
   };
 
-  const normalizedNumber = (number) => {
-    let normalizedNumber = number.substring(0, 3) + "-";
-    for (let i = 3; i < number.length; i += 1) {
-      if ((i - 3) % 2 === 0 && i !== 3) {
-        normalizedNumber += "-";
-      }
-      normalizedNumber += number[i];
-    }
-    return normalizedNumber;
-  };
 
   const addContact = (name, number) => {
-    const formattedNumber = normalizedNumber(number);
 
     const checkName = contact.some(
       (el) => el.name.toLowerCase() === name.toLowerCase()
@@ -65,7 +54,7 @@ export const FormContact = () => {
       return alert(`${name} is already in contacts.`);
     }
 
-    dispatch(addContacts({ name, number: formattedNumber }));
+    dispatch(addContacts({ name, number }));
   };
 
   return (
