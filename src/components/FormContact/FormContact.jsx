@@ -44,9 +44,7 @@ export const FormContact = () => {
     reset();
   };
 
-
   const addContact = (name, number) => {
-
     const checkName = contact.some(
       (el) => el.name.toLowerCase() === name.toLowerCase()
     );
