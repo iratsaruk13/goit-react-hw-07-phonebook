@@ -7,12 +7,12 @@ import {
 } from "./Contacts.styled";
 import { BsTrash3 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { getContacts, getFilters } from "../../redux/selectors";
+import { selectContacts, selectFilters } from "../../redux/selectors";
 import { removeContact } from "../../redux/operations";
 
 export const Contacts = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilters);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilters);
   const dispatch = useDispatch();
 
   const getContact = () => {

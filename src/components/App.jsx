@@ -3,14 +3,19 @@ import { FormContact } from "./FormContact/FormContact";
 import { Contacts } from "./Contacts/Contacts";
 import { FormFilter } from "./Filter/Filter";
 import { useDispatch, useSelector } from "react-redux";
-import { getContacts, getError, getIsLoading } from "../redux/selectors";
+import {
+  selectContacts,
+  selectError,
+  selectIsLoading,
+} from "../redux/selectors";
 import { useEffect } from "react";
 import { fetchContacts } from "redux/operations";
+import { Loader } from "./Loader/Loader";
 
 export const App = () => {
-  const contacts = useSelector(getContacts);
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +26,7 @@ export const App = () => {
     <Container>
       <MainTitle>Phonebook</MainTitle>
       <FormContact />
-      {isLoading && !error && <h3>Loading...</h3>}
+      {isLoading && !error && <Loader />}
       <ContactsTitle>Contacts</ContactsTitle>
       <FormFilter label="Find contacts by name" />
       {contacts.length === 0 ? (

@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StyledForm, FilterLabel, FilterInput } from "./Filter.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { getFilters } from "../../redux/selectors";
+import { selectFilters } from "../../redux/selectors";
 import { setFilter } from "../../redux/filtersSlice";
 
 export const FormFilter = ({ label }) => {
-  const filters = useSelector(getFilters);
+  const filters = useSelector(selectFilters);
   const dispatch = useDispatch();
   const initialValues = {
     filter: "",

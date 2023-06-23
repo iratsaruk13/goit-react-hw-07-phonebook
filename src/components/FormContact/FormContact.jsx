@@ -11,7 +11,7 @@ import {
 } from "./FormContact.styled";
 import { FcPlus } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
-import { getContacts } from "../../redux/selectors";
+import { selectContacts } from "../../redux/selectors";
 import { addContacts } from "../../redux/operations";
 
 const phoneValidation =
@@ -27,7 +27,7 @@ const schema = Yup.object().shape({
 });
 
 export const FormContact = () => {
-  const contact = useSelector(getContacts);
+  const contact = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const {
@@ -65,7 +65,7 @@ export const FormContact = () => {
       return alert(`${name} is already in contacts.`);
     }
 
-    dispatch(addContacts(name, formattedNumber));
+    dispatch(addContacts({ name, number: formattedNumber }));
   };
 
   return (
